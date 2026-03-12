@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadeau Manel ❤️</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #ffb6c1;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        min-height: 100vh;
+        overflow-y: auto;
+      }
+
+      .container {
+        padding: 20px;
+        max-width: 95%;
+        margin: auto;
+      }
+
+      h1 {
+        margin-top: 25px;
+      }
+
+      .birthdayTitle {
+        font-size: 38px;
+      }
+
+      button {
+        padding: 12px 25px;
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      .yesBtn {
+        background: #4caf50;
+        color: white;
+      }
+
+      .noBtn {
+        background: #f44336;
+        color: white;
+        position: absolute;
+      }
+
+      .tip {
+        font-size: 18px;
+        color: #333;
+      }
+
+      .enterBtn {
+        background: #888;
+        color: white;
+      }
+
+      .lockMsg {
+        font-size: 16px;
+        color: #333;
+      }
+
+      .back {
+        padding: 16px 35px;
+        font-size: 22px;
+        background: #ff4d6d;
+        color: white;
+        border-radius: 12px;
+        margin-top: 25px;
+      }
+
+      .returnHome {
+        padding: 14px 30px;
+        font-size: 22px;
+        background: #4caf50;
+        color: white;
+        border-radius: 10px;
+        margin-top: 25px;
+        margin-bottom: 40px;
+      }
+
+      img {
+        max-width: 90%;
+        height: auto;
+      }
+
+      @media (max-width: 600px) {
+        .birthdayTitle {
+          font-size: 30px;
+        }
+
+        button {
+          font-size: 18px;
+          padding: 10px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>نسقسيك حاجة</h1>
+      <h2>نتي بقرة ؟ و الا شابة باينة ؟</h2>
+
+      <p class="tip">و شوفي No سيي ديري</p>
+
+      <br />
+
+      <button class="yesBtn" onclick="yes()">Yes</button>
+      <button class="noBtn" id="no" onclick="moveButton()">No</button>
+
+      <br /><br />
+
+      <button id="enterBtn" class="enterBtn" disabled>ادخلي</button>
+
+      <p id="lockMsg" class="lockMsg">question روحي جاوبي على</p>
+    </div>
+
+    <script>
+      const noBtn = document.getElementById("no");
+
+      function moveButton() {
+        const x = Math.random() * (window.innerWidth - 150);
+        const y = Math.random() * (window.innerHeight - 80);
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+      }
+
+      function runAway(btn) {
+        const x = Math.random() * (window.innerWidth - 150);
+        const y = Math.random() * (window.innerHeight - 80);
+
+        btn.style.position = "absolute";
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+      }
+
+      function yes() {
+        document.body.innerHTML = `
+
+<div class="container">
+
+<h1 class="birthdayTitle">Joyaux anniversaire 🐮❤️</h1>
+
+<img src="cow-birthday.png"
+style="width:350px;max-width:85%;border-radius:20px;margin-top:15px;box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+
+<br><br>
+
+<button class="back" onclick="returnToQuestion()">عاودي ولي دوكا تشو</button>
+
+</div>
+
+`;
+      }
+
+      function returnToQuestion() {
+        document.body.innerHTML = `
+
+<div class="container">
+
+<h1>نسقسيك حاجة</h1>
+<h2>نتي بقرة ؟</h2>
+
+<p class="tip">و شوفي No سيي ديري</p>
+
+<br>
+
+<button class="yesBtn" onclick="yes()">Yes</button>
+<button class="noBtn" onclick="moveButton()">No</button>
+
+<br><br>
+
+<button id="enterBtn">ادخلي</button>
+
+<p id="lockMsg"></p>
+
+</div>
+
+`;
+
+        setupUnlockedEnter();
+      }
+
+      function setupUnlockedEnter() {
+        const enterBtn = document.getElementById("enterBtn");
+
+        enterBtn.style.background = "#4caf50";
+        enterBtn.style.color = "white";
+
+        enterBtn.onclick = function () {
+          document.body.innerHTML = `
+
+<div class="container">
+
+<button class="returnHome" onclick="page4()">continue</button>
+
+<h1 style="font-size:28px;margin-top:20px;">
+
+  غلطة تاعي مخليتش عندي كي عارفة❤️
+   </h1>
+   <h1 style="font-size:28px;margin-top:20px;">
+
+ meilleur photo </h1>
+
+ <h1 style="font-size:28px;margin-top:20px;">
+
+❤️لي نحبها فيك 
+ </h1>
+  
+
+</h1>
+
+<h1 style="font-size:24px;margin-top:20px;">
+hmara w bagra w hakak ma9dertch nensa anniversaire ta3k ❤️
+</h1>
+
+<img src="manel.png"
+style="width:420px;max-width:85%;border-radius:20px;margin-top:20px;">
+
+</div>
+
+`;
+        };
+      }
+
+      function page4() {
+        document.body.innerHTML = `
+
+<div class="container">
+
+<h1>حبيتي كادو❤️ ؟</h1>
+
+<button class="yesBtn" onclick="page5()">Yes</button>
+<button class="noBtn" onclick="runAway(this)">No</button>
+
+</div>
+
+`;
+      }
+
+      function page5() {
+        document.body.innerHTML = `
+
+<div class="container">
+
+<h1 style="font-size:28px;">❤️❤️❤️ريان شيكور و خير منك ؟ و هو أفضل واحد عرفتيه و يحبك صح ؟</h1>
+
+<button class="yesBtn" onclick="page6()">Yes</button>
+<button class="noBtn" onclick="runAway(this)">No</button>
+
+</div>
+
+`;
+      }
+
+      function page6() {
+        document.body.innerHTML = `
+
+<div class="container">
+
+<h3 style="font-size:clamp(26px,6vw,50px);">Joyaux anniversaire manel ❤️</h3>
+
+<h1 style="font-size:30px;"> ❤️ تحبي ريان ؟</h1>
+
+<button class="yesBtn" onclick="runAway(this)">Yes</button>
+<button class="noBtn" onclick="runAway(this)">No</button>
+
+<p style="margin-top:40px;font-size:20px;font-weight:bold;color:#333;">
+Ta reponse (oui ou non )<br>
+أرواحي قوليلي
+</p>
+
+<br><br>
+
+<button class="returnHome" onclick="restart()">Replay</button>
+
+</div>
+
+`;
+      }
+
+      function restart() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
